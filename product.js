@@ -1,8 +1,8 @@
-fetch("https://dummyjson.com/products")
+fetch('https://dummyjson.com/product')
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
-    myproducts = data.products;
+   let myproducts = data.products;
     showinMainFrame(myproducts);
   });
 
@@ -10,13 +10,17 @@ let mainFrame = document.getElementById("main-frame");
 let searchBar = document.getElementById("search-bar");
 let rang=document.getElementById("r")
  let button=document.getElementById("btn");
+//  let music=document.getElementById("music");
 let flag;
 
+
+// ========css=======
 searchBar.classList.add("bg-gray-300","italic","m-7");
 rang.classList.add("bg-gray-300","italic","m-7");
  button.classList.add("h-12","w-25","bg-blue-300","rounded","m-20");
 
- //====button==
+
+ //====button==--
  button.addEventListener("click",function(){
     if(searchid||searchrang){}
     else{
@@ -27,7 +31,7 @@ rang.classList.add("bg-gray-300","italic","m-7");
      myproducts.sort((a, b) => a.id- b.id);
       showinMainFrame(myproducts);
     flag=null;}
-        // PRICE
+        // ===PRICE=======
       else{
          button.innerHTML="According to ID";
         button.classList.remove("bg-blue-300");
@@ -77,10 +81,11 @@ function showinMainFrame(products) {
     ${pro.title} <br>
    ₹${pro.price} <br>
    id=${pro.id} <br>
-   <button onclick="buyMe('${pro.title}')">BUY MY</button>
+   <button onclick="buyMe('${pro.title}")>BUY MY</button>
 </div>`
   });
 }
 function buyMe(item) {
+  // music.play();
   alert(`Are you sour to buy: ${item}`);
 }
